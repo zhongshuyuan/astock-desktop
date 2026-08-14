@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'" />
+  <title>A股看板</title>
+  <link rel="stylesheet" href="shell.css" />
+</head>
+<body>
+  <header class="toolbar">
+    <button id="back" class="nav-btn" title="后退">&#8249;</button>
+    <button id="forward" class="nav-btn" title="前进">&#8250;</button>
+    <button id="reload" class="nav-btn" title="刷新">&#8635;</button>
+    <input id="url" type="text" spellcheck="false"
+           placeholder="输入链接后回车，例如 http://100.64.217.92:8688" />
+    <button id="go" class="nav-btn go" title="前往">&#8594;</button>
+    <span id="status" class="status"></span>
+  </header>
+
+  <div id="overlay" class="overlay hidden">
+    <div class="overlay-box">
+      <h2 id="overlay-title">无法加载</h2>
+      <p id="overlay-msg"></p>
+      <button id="overlay-retry">重试</button>
+    </div>
+  </div>
+
+  <!-- 远程看板由独立沙箱子进程加载，不继承 Node 能力 -->
+  <webview id="view" src="http://100.64.217.92:8688" allowpopups="false"></webview>
+
+  <script src="shell.js"></script>
+</body>
+</html>
