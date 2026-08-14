@@ -1,0 +1,45 @@
+{
+  "name": "astock-desktop",
+  "version": "1.0.0",
+  "description": "A股看板桌面客户端 —— Electron 瘦客户端（地址栏 + 浏览器窗口），默认加载 NAS 看板，支持手动输入其他链接查看。",
+  "main": "main.js",
+  "author": "zsy",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.astock.desktop",
+    "productName": "A股看板",
+    "files": [
+      "main.js",
+      "preload.js",
+      "config.js",
+      "src/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": ["nsis", "portable"]
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-portable.exe"
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false
+    },
+    "mac": {
+      "target": ["dmg"],
+      "category": "public.app-category.finance"
+    }
+  }
+}
