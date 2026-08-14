@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- macOS 代码签名 / notarization 用授权文件。仅在用户自备 Apple Developer 证书并配置
+     CSC / APPLE_ID / APPLE_ID_PASS / APPLE_TEAM_ID 环境变量后才会被 electron-builder 使用。
+     首版自用（未签名）不会读取本文件，保留以备二期签名。 -->
+<dict>
+  <key>com.apple.security.cs.allow-jit</key>
+  <true/>
+  <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+  <true/>
+  <key>com.apple.security.cs.disable-library-validation</key>
+  <true/>
+</dict>
